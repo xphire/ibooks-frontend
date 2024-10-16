@@ -1,4 +1,4 @@
-# HoTEL BOOKING APP
+## HOTEL BOOKING SPA APP
 
 - React JS
 - TypeScript
