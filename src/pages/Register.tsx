@@ -16,9 +16,17 @@ const Register = () => {
 
     const queryClient = useQueryClient()
 
-    const {showToast} = useAppContext()
-
     const navigate = useNavigate()
+
+    const {showToast, isLoggedIn} = useAppContext()
+
+    if (isLoggedIn){
+
+
+        navigate('/')
+
+    }
+
 
     const {register, watch, handleSubmit, formState : {errors}} = useForm<RegisterFormData>()
 

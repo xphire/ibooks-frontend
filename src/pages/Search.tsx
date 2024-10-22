@@ -124,7 +124,7 @@ const Search = () => {
 
                   </div>
                   {hotelData?.data.map((hotel) => (
-                    <SearchResultCard hotel={hotel}/>
+                    <SearchResultCard hotel={hotel} key={hotel.id}/>
                   ))}
 
                   <div>

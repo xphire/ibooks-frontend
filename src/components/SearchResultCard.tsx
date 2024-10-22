@@ -22,8 +22,8 @@ const SearchResultCard = ({ hotel }: Props) => {
             <span className="flex">
               {Array.from({
                 length: hotel.starRating,
-              }).map(() => (
-                <AiFillStar className="fill-yellow-400" />
+              }).map((_,index) => (
+                <AiFillStar className="fill-yellow-400" key={index} />
               ))}
             </span>
 
@@ -42,7 +42,7 @@ const SearchResultCard = ({ hotel }: Props) => {
         <div className="flex flex-col">
           <div className="flex gap-2 flex-wrap">
             {hotel.facilities.slice(0, 3).map((facility) => (
-              <span className="bg-slate-300 p-2 rounded-lg font-bold text-xs whitespace-nowrap max-h-fit">
+              <span className="bg-slate-300 p-2 rounded-lg font-bold text-xs whitespace-nowrap max-h-fit" key={facility}>
                 {facility}
               </span>
             ))}

@@ -25,7 +25,7 @@ const Home = () => {
 
           {hotels.map((hotel,index) => (
 
-               <Homecard hotel={hotel} favorite={index !== 0}/>
+               <Homecard hotel={hotel} favorite={index !== 0} key={index}/>
           ))}
 
 

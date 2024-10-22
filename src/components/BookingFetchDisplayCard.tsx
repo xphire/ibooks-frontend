@@ -2,6 +2,7 @@
 import { HotelType } from "../api-client";
 //import * as apiClient from '../api-client'
 import { FaLocationPin } from "react-icons/fa6";
+import BookingStatusCard from "./BookingStatusCard";
 
 
 type Props = {
@@ -11,10 +12,12 @@ type Props = {
 const BookingFetchDisplayCard = ({hotel} : Props) => {
 
 
-    const color = (status : string) => status === 'placed' ? 'bg-yellow-500' : status === 'paid' ? 'bg-green-500' : 'bg-red-500'
+    if(!hotel){
 
+        return <>
+        </>
+    }
 
-    const refactorDate = (date : string) => date.split('T')[0]
 
 
   return (
@@ -51,29 +54,13 @@ const BookingFetchDisplayCard = ({hotel} : Props) => {
 
                                 <div className='h-[500px] overflow-y-auto'>
 
-                                        {hotel.bookings?.map((booking) => (
-                                        <div key={booking.id} className='grid grid-flow-row py-3 border-b border-b-slate-300'>
+                                    {hotel.bookings && hotel.bookings.map((booking) => (
+
+                                        <BookingStatusCard booking={booking} key={booking.id}/>
+                                    )
 
 
-                                                <div>
-                                                    Booking ID : {booking.id}
-                                                </div>
-
-                                                <div>
-                                                    Check-In Date : {booking.checkInDate && refactorDate(booking.checkInDate)}
-                                                </div>
-
-                                                <div>
-                                                    Check-Out Date : {booking.checkOutDate && refactorDate(booking.checkOutDate)}
-                                                </div>
-
-                                                <div>
-                                                    Status : <span className={`${color(booking.status)} p-1 w-fit text-white rounded-sm shadow-sm`}>{booking.status}</span>
-                                                </div>
-
-
-                                        </div>
-                                        ))}
+                                    )}
 
                                     
                                 </div>

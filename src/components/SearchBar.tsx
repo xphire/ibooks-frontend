@@ -42,6 +42,7 @@ const SearchBar = () => {
             <MdTravelExplore size={25} className='mr-1'/>
             <input 
             placeholder='where are you going?' 
+            name="destination"
             className='text-sm w-full focus:outline-none' 
             value={destination}
             onChange={(event) => setDestination(event.target.value) } />
@@ -79,18 +80,26 @@ const SearchBar = () => {
 
         <div>
 
+
             <DatePicker 
             selected={checkIn}
             onChange={date => setCheckIn(date as Date)}
             selectsStart
+            name="checkIn"
             startDate={checkIn}
             endDate={checkOut}
             minDate={minDate}
             maxDate={maxDate}
+            isClearable
             placeholderText='Check-in Date'
             className='min-w-full bg-white p-2 focus:outline-none'
             wrapperClassName='min-w-full'
             />
+
+
+        
+
+            
 
         </div>
 
@@ -99,7 +108,9 @@ const SearchBar = () => {
             <DatePicker 
             selected={checkOut}
             onChange={date => setCheckOut(date as Date)}
+            name="checkOut"
             selectsStart
+            isClearable
             startDate={checkIn}
             endDate={checkOut}
             minDate={minDate}
@@ -114,7 +125,7 @@ const SearchBar = () => {
 
         <div className='flex gap-1'>
 
-            <button className='w-2/3 bg-blue-600 text-white h-full p-2 font-bold text-xl hover:bg-blue-500'>
+            <button className='w-2/3 bg-blue-600 text-white h-full p-2 font-bold text-xl hover:bg-blue-500' disabled={!checkIn || !checkOut}>
                   Search
             </button>
             <button className='w-1/3 bg-red-600 text-white h-full p-2 font-bold text-xl hover:bg-red-500'>

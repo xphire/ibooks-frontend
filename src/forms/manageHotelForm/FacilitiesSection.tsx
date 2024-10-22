@@ -14,7 +14,7 @@ const FacilitiesSection = () => {
         <div className='grid grid-cols-2 md:grid-cols-5 gap-3'>
             {hotelFacilities.map((facility) => (
 
-                <label className='text-sm flex gap-1 text-gray-700'>
+                <label className='text-sm flex gap-1 text-gray-700' key={facility}>
                     <input type='checkbox' value={facility} {...register('facilities', {
                         validate : (facilities) => {
 

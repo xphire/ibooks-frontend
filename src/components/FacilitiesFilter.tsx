@@ -15,7 +15,7 @@ const FacilitiesFilter = ({selectedFacilities, onChange} : Props) => {
         <h4 className='text-md font-semibold mb-2'>Facilities</h4>
         {facilities.map((facility) => (
 
-           <label className='flex items-center space'>
+           <label className='flex items-center space' key={facility}>
              <input 
                type='checkbox' 
                className='rounded' 

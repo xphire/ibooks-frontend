@@ -77,8 +77,6 @@ const BookingForm = ({currentUser , hotelId}: Props) => {
 
     useEffect(() => {
 
-        console.log('booking response',data)
-
         if(data?.url){
 
             window.location.replace(data?.url)
